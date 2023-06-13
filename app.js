@@ -62,6 +62,9 @@ deleteButton = (newNode, currentNode) => {
 removeAllNewURLs = () => {
   // Checks whether there are two url-shorten-results classes in the urlWrapper element.
   // If the condition is true, this function creates a "delete all button" to remove two generated URLs  
+  // The classlist method adds CSS classes to the button element
+  // The textContent property returns content of the element i.e the delete all contne for the button element
+  // Finally, use the insertAfter method to insert the dynamic button after the last elemet in the urllWrapper child
   if (urlWrapper.querySelectorAll(".url-shorten-results").length >= 2) {
     if (urlWrapper.querySelector(".delete-all-urls")) {
       urlWrapper.querySelector(".delete-all-urls").remove();
@@ -74,6 +77,7 @@ removeAllNewURLs = () => {
     button.textContent = "delete all";
     insertAfter(button, urlWrapper.lastElementChild);
 
+    // 
     let deleteAllUrls = urlWrapper.querySelector(".delete-all-urls");
     deleteAllUrls.addEventListener("click", () => {
       urlWrapper.innerHTML = "";
