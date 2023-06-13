@@ -12,7 +12,7 @@
 <body>
 
   <!---header section------>
-  <header class="container">
+  <header class="header-container">
     <nav>
       <div class="nav-left">
         <img src="/images/logo.svg" alt="logo">
@@ -30,7 +30,7 @@
 
   <!---hero section----->
   <main>
-    <section class="container">
+    <section class="main-hero-container">
       <div class="hero-section-container">
         <div class="hero-section-content">
           <h1 class="hero-section-header">More than just shorter links</h1>
@@ -45,10 +45,11 @@
     </section>
 
     <!---url section----->
-    <section class="container">
+    <section class="main-url-container">
       <div class="url-container">
-        <form class="url-form">
-          <input type="url" placeholder="Shorten a link here..." class="url-input">
+        <form class="url-form" id="url-form">
+          <input type="url-input" placeholder="Shorten a link here..." class="url-input">
+          <span class="alert"></span>
           <button type="submit">Shorten it!</button>
         </form>
       </div>
@@ -100,7 +101,7 @@
       <button class="boost-link-btn">Get Started</button>
     </section>
     <footer>
-      <div class="container footer-container">
+      <div class="main-footer-container footer-container">
         <div class="footer-image-container">
           <img src="./images/logo.svg" alt="logo">
           <!----<h1 class="footer-logo">Shortly</h1>----->

@@ -1,22 +1,27 @@
 // Define global variables
 const urlWrapper = document.querySelector(".url-container");
-const urlForm = document.querySelector(".url-form");
+const urlForm = document.querySelector("#url-form");
 const urlInput = document.querySelector(".url-input");
 const submitButton = document.querySelector("button");
+const alert = document.querySelector(".alert");
 
 // Build UI structure for url output
 //insertAdjacentHTML is a method for inserting HTML code into a specified position
+// set the main url container's class to url-container and id to "${id}".
+// Create divs for the old url & the new url
+//create another div with "options" class to hold 2 buttons:
+// One button is for copying the new url and another button is for deleting the copied url 
+// In the second button, insert a trash can icon to symbolize the delete button 
 
-function shortURLOutput(id, originalURL, shortURL) {
+function shortURLOutput(id, oldURL, newURL) {
   urlWrapper.insertAdjacentHTML(
     "beforeend",
-    `
-    <div class="short-url-result" id="${id}">
+    <div class="url-container" id="${id}">
     <div class="old-url">
-      <p><a href="${originalURL}" target="_blank">${originalURL}</a></p>
+      <p><a href="${oldURL}" target="_blank">${oldURL}</a></p>
     </div>
     <div class="new-url">
-      <p><a href="${shortURL}" target="_blank">${shortURL}</a></p>
+      <p><a href="${newURL}" target="_blank">${newURL}</a></p>
     </div>
     <div class="options">
       <button type="button" class="copy-new-url btn btn-sm scale-effect">copy</button>
@@ -25,8 +30,10 @@ function shortURLOutput(id, originalURL, shortURL) {
         <i class="fa-regular fa-trash-can icon"></i>
       </button>
     </div>
-  </div>`
+  </div>
   );
+  // These are functions to manipulate the URL behavior. The first function removes the URL, 
+  //The second URL copies the new URL and the removeAllURLs deletes the copies URLs
   removeURL();
   copyURL();
   removeAllURLs(); 
@@ -59,6 +66,15 @@ function deleteGeneratedURLs () {
       savedURLS = [];
       localStorage.removeItem("saved");
     });
-
+  } else {
+    if (urlWrapper.querySelector(".delete-all-urls")) {
+      urlWrapper.querySelector("delete-all-urls").remove();
+    }
   }
-} 
+}
+
+// function for deleting one userSelect: 
+
+function removeOneURL (){
+  let 
+}
