@@ -67,8 +67,7 @@ removeAllNewURLs = () => {
       urlWrapper.querySelector(".delete-all-urls").remove();
     }
     // we're creating a button with the "delete-all" text
-    // you first define a variable with the createElement method
-    //then 
+    /* you first define a variable with the createElement method. Then define the button type.  */
     let button = document.createElement("button");
     button.type = "button";
     button.classList = "btn btn-sm delete-all-urls scale-effect";
