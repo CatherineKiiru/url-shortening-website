@@ -77,7 +77,7 @@ function removeAllGeneratedURLs() {
   }
 }
 
-// Remove Sindle URL
+// Remove Single URL
 function removeURL() {
   let deleteURLButton = shortURLsWrapper.querySelectorAll(".delete-url");
   deleteURLButton.forEach((button) => {

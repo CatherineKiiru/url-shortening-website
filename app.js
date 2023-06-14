@@ -44,7 +44,7 @@ function shortURLOutput(id, oldUrl, newUrl) {
   );
   // These are functions to manipulate the URL behavior. The first function removes the URL,
   //The second URL copies the new URL and the removeAllURLs deletes the copies URLs
-  removeUrl();
+  removeOneUrl();
   copyUrl();
   removeAllUrls();
 }
@@ -61,7 +61,7 @@ deleteButton = (newNode, currentNode) => {
 
 removeAllNewURLs = () => {
   // Checks whether there are two url-shorten-results classes in the urlWrapper element.
-  // If the condition is true, this function creates a "delete all button" to remove two generated URLs  
+  // If the condition is true, this function creates a "delete all button" to remove two generated URLs
   // The classlist method adds CSS classes to the button element
   // The textContent property returns content of the element i.e the delete all contne for the button element
   // Finally, use the insertAfter method to insert the dynamic button after the last elemet in the urllWrapper child
@@ -77,7 +77,7 @@ removeAllNewURLs = () => {
     button.textContent = "delete all";
     insertAfter(button, urlWrapper.lastElementChild);
 
-    // 
+    //
     let deleteAllUrls = urlWrapper.querySelector(".delete-all-urls");
     deleteAllUrls.addEventListener("click", () => {
       urlWrapper.innerHTML = "";
@@ -90,4 +90,21 @@ removeAllNewURLs = () => {
     }
   }
   // Create dynamic button for deleting URLs
+};
+
+// removing a single URL
+// start by selecting the button with the trash icon by using querySelectorAll and passing in the class "delete-url"
+
+removeOneUrl = () => {
+  let deleteButton = urlWrapper.querySelectorAll(".delete-url");
+  deleteButton.forEach((button) => {
+    button.addEventListener("click", () => {
+      let urlId = button.closest(".url-shorten-results").id;
+      button.closest(".url-shorten-results").remove();
+      const index = savedUrls.findIndex((url) => url.id == urlId);
+      savedUrls.splice(index, 1);
+      localStorage.setItem("saved", JSON.stringify(savedUrls));
+      removeAllNewURLs();
+    });
+  });
 };
