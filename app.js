@@ -26,7 +26,7 @@ function shortURLOutput(id, oldUrl, newUrl) {
       </div>
       <div class="new-url">
         <p>
-          <a href="${newURL}" target="_blank">
+          <a href="${newUrl}" target="_blank">
             ${newUrl}
           </a>
         </p>
@@ -94,7 +94,9 @@ removeAllNewURLs = () => {
 
 // removing a single URL
 // start by selecting the button with the trash icon by using querySelectorAll and passing in the class "delete-url"
-
+// Get the URL ID with the urlId variable
+// Remove URL from the list with the .closest method which returns the first ancestor which matches the querySelectorAll element. In this case it's "delete-url"
+// Once you remove from the list, remove it from the array by getting the URLs index.
 removeOneUrl = () => {
   let deleteButton = urlWrapper.querySelectorAll(".delete-url");
   deleteButton.forEach((button) => {
@@ -108,3 +110,30 @@ removeOneUrl = () => {
     });
   });
 };
+
+// Copy URL
+CopyUrl = () => {
+  let copyButton = urlWrapper.querySelectorAll(".copy-new-url");
+  copyButton.forEach((button) => {
+    button.addEventListener("click", () => {
+      let urlText = button 
+      .closest(".url-shorten-results")
+      .querySelector(".new-url p").textContent;
+      const body = document.querySelector("body");
+      const area = document.createElement("textarea");
+      body.appendChild(area);
+      area.value = urlText;
+      area.select();
+      document.execCommand("copy"); //this command has been deprecated with no alternative. 
+      button.classList.add("copied");
+      button.innerHTML = "copied!";
+      setTimeout(() => {
+        button.classList.remove("copied");
+        button.innerHTML = "copy";
+      }, 1500);
+      body.removeChild(area);
+    })
+  }) 
+
+}
+
