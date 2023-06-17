@@ -132,8 +132,22 @@ CopyUrl = () => {
         button.innerHTML = "copy";
       }, 1500);
       body.removeChild(area);
-    })
-  }) 
+    });
+  });
+}
+
+// Generate Random IDs 
+
+randomIds = () => {
+  let currentTime = Date.now()
+  let currentTimeString = currentTime.toString(32).slice(0, 8);
+  let randomNumber = Math.floor(Math.random() * Number.MAX_SAFE_INTEGER)
+    .toString()
+    .slice(0, 4);
+  let randomId = `${currentTimeString}-${randomNumber}`;
+  return randomId;
 
 }
+
+
 
