@@ -214,7 +214,17 @@ randomIds = () => {
   } catch (error) {
     alerts("Oops! An unknown error occured, try again later")
   }
-}
+};
+
+urlForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  let inputValue = input.value.trim().replace(" ", "");
+  submitButton.innerHTML = `<i class="fa-solid fa-spinner icon fa-spin"></i> Generating...`;
+  generateShortUrl(inputValue);
+  urlForm.reset();
+})
+
+//Alerts
 
 
 
