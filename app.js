@@ -136,7 +136,17 @@ CopyUrl = () => {
   });
 }
 
-// Generate Random IDs 
+// Generate Random IDs
+// Start by defining a randomId function
+// define a variable to get the current time in miliseconds with the Date.now() method
+// Convert the date to a base 32 string representation
+// Slice the result to extract the first 8 characters
+// Use the Math.random method to generate a random number 
+// Multiply it with the max safe integer value
+// Round it off to an integer
+// Extract the new integer to a a string and slice to extract 4 characters
+// Concatenate the CurrentTimeString & randomNumber to create a final randoMID
+// The generated ID is then returned as the output of the function 
 
 randomIds = () => {
   let currentTime = Date.now()
@@ -146,6 +156,33 @@ randomIds = () => {
     .slice(0, 4);
   let randomId = `${currentTimeString}-${randomNumber}`;
   return randomId;
+
+}
+
+// fetch and render the shortcode API 
+
+ generateShortUrl = async (url) => {
+  let apiUrl = "https://api.shrtco.de/v2/";
+  let shortenQuery = `shorten?url=`;
+  let fetchUrl = `${apiUrl}${shortenQuery}${url}`;
+
+  try {
+    let response = await fetch(fetchUrl);
+    let data = await response.json();
+    let status = data.ok;
+    // respond with data
+    if (status) {
+      let originalUrl = data.result.original_link;
+      let shortUrl = data.result.full_short_link;
+      let generatedUrl = {
+        id: randomIds(),
+        originalUrl: originalUrl,
+        shortUrl: shortUrl,
+      };
+      
+    }
+    
+  }
 
 }
 
