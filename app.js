@@ -1,9 +1,9 @@
 // Define global variables
-const urlWrapper = document.querySelector(".url-container");
+const urlWrapper = document.querySelector(".main-url-container");
 const urlForm = document.querySelector("#url-form");
 const urlInput = document.querySelector(".url-input");
 const submitButton = document.querySelector("button");
-const alert = document.querySelector(".alert");
+const alertMessage = document.querySelector(".alert");
 
 // Build UI structure for url output
 //insertAdjacentHTML is a method for inserting HTML code into a specified position
@@ -222,9 +222,18 @@ urlForm.addEventListener("submit", (e) => {
   submitButton.innerHTML = `<i class="fa-solid fa-spinner icon fa-spin"></i> Generating...`;
   generateShortUrl(inputValue);
   urlForm.reset();
-})
+});
 
-//Alerts
+//Show Alerts in the form 
+alerts = ((message) => {
+  urlForm.classList.add("empty");
+  alertMessage.textContent = message;
+
+  setTimeout(() => {
+    urlForm.classList.remove("empty");
+  }, 5000);
+});
+
 
 
 
