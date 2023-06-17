@@ -16,7 +16,8 @@ const alert = document.querySelector(".alert");
 function shortURLOutput(id, oldUrl, newUrl) {
   urlWrapper.insertAdjacentHTML(
     "beforeend",
-    <div class="url-shorten-results" id="${id}">
+    `
+    <div class="url-shorten-results" id='${id}'>
       <div class="old-url">
         <p>
           <a href="${oldUrl}" target="_blank">
@@ -40,7 +41,7 @@ function shortURLOutput(id, oldUrl, newUrl) {
           <i class="fa-regular fa-trash-can icon"></i>
         </button>
       </div>
-    </div>
+    </div>`
   );
   // These are functions to manipulate the URL behavior. The first function removes the URL,
   //The second URL copies the new URL and the removeAllURLs deletes the copies URLs
@@ -160,6 +161,8 @@ randomIds = () => {
 }
 
 // fetch and render the shortcode API 
+// respond with data
+// Create object for originalUrl & shortUrl
 
  generateShortUrl = async (url) => {
   let apiUrl = "https://api.shrtco.de/v2/";
@@ -170,7 +173,7 @@ randomIds = () => {
     let response = await fetch(fetchUrl);
     let data = await response.json();
     let status = data.ok;
-    // respond with data
+    
     if (status) {
       let originalUrl = data.result.original_link;
       let shortUrl = data.result.full_short_link;
@@ -179,11 +182,38 @@ randomIds = () => {
         originalUrl: originalUrl,
         shortUrl: shortUrl,
       };
-      
+      // Change text & style for submit button
+      urlForm.classList.add("success");
+      submitButton.innerHTML = `<i class="fa-solid fa-check icon"></i> shortened!`
+      setTimeout(() => {
+        urlForm.classList.remove("success");
+        submitButton.innerHTML = "shorten it!"
+      }, 1500);
+      shortURLOutput(randomIds(), originalUrl, shortUrl);
+      savedUrls.push(generatedUrl);
+      localStorage.setItem("saved", JSON.stringify(savedUrls));
     }
-    
+    else {
+      submitButton.innerHTML = "shorten it!";
+      let errorMessage = data.error_message;
+      switch (errorMessage) {
+        case 1:
+          alerts("Please add a link");
+          break;
+        case 2:
+          alerts(data.error.split(",")[0] + ", Please add a valid link");
+          break;
+        case 10:
+          alerts("The link cannot be shortened")
+          break;
+        default:
+          alerts(data.error);
+      }
+    } 
+    // For when there's downtime 
+  } catch (error) {
+    alerts("Oops! An unknown error occured, try again later")
   }
-
 }
 
 
