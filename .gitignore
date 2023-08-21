@@ -15,4 +15,5 @@
 .DS_Store
 
 # Remove files you don' want to include in the final project
+.sass.md
 
