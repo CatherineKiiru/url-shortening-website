@@ -1,0 +1,45 @@
+@mixin flex($dir: null, $justify: null, $align: null, $gap: null) {
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+
+// Extra Small 1
+@mixin media-280 {
+  @media (max-width: 280px) {
+    @content;
+  }
+}
+// Extra Small 2
+@mixin media-375 {
+  @media (max-width: 375px) {
+    @content;
+  }
+}
+//  Extra Small 3
+@mixin media-500 {
+  @media (max-width: 500px) {
+    @content;
+  }
+}
+// Small
+@mixin media-767 {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+// Medium
+@mixin media-992 {
+  @media (max-width: 992px) {
+    @content;
+  }
+}
+
+// Large Screens
+@mixin mediaXl {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}

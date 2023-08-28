@@ -1,0 +1,94 @@
+.footer {
+  padding: $main-padding 0 $main-padding + 10;
+  background: $very-dark-violet;
+
+  .container {
+    @include flex(null, center, flex-start, ($gap * 2) - 10); // 70px
+    flex-wrap: wrap;
+
+    @media (max-width: 705px) {
+      flex-wrap: nowrap;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+  }
+
+  .logo {
+    flex: 1 0 auto;
+
+    img {
+      filter: brightness(10);
+    }
+  }
+
+  .quick-links {
+    display: flex;
+    gap: $gap + 20;
+
+    @media (max-width: 705px) {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 30px;
+    }
+
+    .links-group {
+      display: flex;
+      flex-direction: column;
+      gap: $gap / 2; // 20px
+    }
+  }
+
+  .links-group {
+    span {
+      color: $white;
+      font-weight: 700;
+    }
+
+    > div {
+      display: flex;
+      flex-direction: column;
+      gap: $gap / 6; // 6.66px
+    }
+
+    a {
+      color: $gray;
+      font-size: $font-size - 3; // 13px
+      transition: $fast-transition color;
+
+      @media (max-width: 705px) {
+        font-size: $font-size; // 16px
+      }
+
+      &:hover {
+        color: cyan;
+      }
+    }
+  }
+
+  .social-media {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 20px;
+
+    img {
+      max-width: 85%;
+      transition: $fast-transition transform;
+
+      @media (max-width: 705px) {
+        max-width: 100%;
+      }
+
+      &:hover {
+        transform: scale(1.1);
+        filter: invert(0%) sepia(59%) saturate(6585%) hue-rotate(125deg)
+          brightness(86%) contrast(85%);
+
+        // Filter source
+        // https://stackoverflow.com/questions/42966641/how-to-transform-black-into-any-given-color-using-only-css-filters/43960991#:~:text=produces%20rgb(20%2C11%2C112)-,Demo,-%22use%20strict%22%3B%0A%0Aclass
+      }
+    }
+  }
+}

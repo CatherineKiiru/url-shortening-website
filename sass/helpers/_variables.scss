@@ -1,0 +1,38 @@
+// Colors
+$cyan: rgb(42, 207, 207); // maina
+$light-cyan: hsl(180, 66%, 65%);
+$red: hsl(0, 87%, 67%);
+$success: hsl(163, 61%, 48%);
+$dark-red: hsl(0, 87%, 62%);
+$dark-violet: hsl(257, 27%, 26%); // alt-color
+$gray: hsl(0, 0%, 75%);
+$grayish-violet: hsl(257, 7%, 63%); // third -color
+$very-dark-blue: hsl(255, 11%, 22%); // dark-third -color
+$very-dark-violet: hsl(260, 8%, 14%); // footer-color
+$white: hsl(0, 0%, 100%);
+$background: hsl(230, 23%, 95%);
+
+// Font
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+$font-stack: "Poppins", sans-serif, "Segoe UI", Tahoma, Geneva, Verdana;
+$font-size: 16px;
+$font-w-400: 400;
+$font-w-500: 500;
+$font-w-700: 700;
+
+// Borders
+$border-radius: 10px;
+
+// Transitions
+$fast-transition: 0.2s;
+$main-transition: 0.3s;
+$medium-transition: 0.4s;
+$slow-transition: 0.5s;
+
+// White Spaces
+$main-padding: 50px;
+$main-margin: 50px;
+$gap: 40px;
+
+// Sizes
+$container-width: 78%;

@@ -1,207 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="css/Styles.css">
-  <title>Shortly url shortening website</title>
-</head>
-
-<body>
-  <main class="main">
-    <!-- Header Section-->
-    <header class="header">
-      <div class="container flex-between">
-        <div class="logo">
-          <a href="#">
-            <img src="images/logo.svg"alt="Website logo on header section" />
-          </a>
-        </div>
-        <nav class="main-navgation flex-between flex-ver-top">
-          <div class="nav-links">
-            <a href="#features">Features</a>
-            <a href="#pricing">Pricing</a>
-            <a href="#resources">Resources</a>
-          </div>
-          <div class="nav-buttons">
-            <a href="#" class="log-in">Login</a>
-            <a href="#" class="sign-up btn btn-sm">Sign Up</a>
-          </div>
-        </nav>
-        <div class="burger-menu">
-          <i class="fa-regular fa-bars icon"></i>
-        </div>
-      </div>
-    </header>
-    <!-- Landing Section-->
-    <section class="landing-section">
-      <div class="landing-text">
-        <h1>More than just shorter links</h1>
-        <p>
-          Build your brand’s recognition and get detailed insights on how your
-          links are performing.
-        </p>
-        <a href="#url-shorten-form" class="btn btn-lg">Get Started</a>
-      </div>
-      <div class="landing-image">
-        <img
-          src="images/illustration-working.svg"
-          alt="Website illustration of someone working"
-        />
-      </div>
-    </section>
-
-    <!-- Features Section-->
-    <section class="features-section" id="features">
-      <div class="container">
-        <!-- Short URL Feature -->
-        <div class="url-shorten-feature">
-          <form class="url-shorten-form" id="url-shorten-form">
-            <div>
-              <input
-                type="text"
-                class="url-input"
-                placeholder="Shorten a link here..."
-                autocomplete="off"
-              />
-              <span class="alert"></span>
-            </div>
-            <button type="submit" class="btn btn-lg btn-plus-icon">Shorten It!</button>
-          </form>
-          <div class="url-shorten-results"></div>
-        </div>
-        <!-- Advanced Features -->
-        <div class="advanced-features">
-          <div class="advanced-section-header">
-            <h2>Advanced Statistics</h2>
-            <p>
-              Track how your links are performing across the web with our
-              advanced statistics dashboard.
-            </p>
-          </div>
-          <div class="advanced-features-content">
-            <div class="feature-card">
-              <div class="feature-illustration">
-                <img
-                  src="./images/icon-brand-recognition.svg"
-                  alt="Feature Illustration Icon"
-                />
-              </div>
-              <div class="feature-details">
-                <h3>Brand Recognition</h3>
-                <p>
-                  Boost your brand recognition with each click. Generic links
-                  don’t mean a thing. Branded links help instil confidence in
-                  your content.
-                </p>
-              </div>
-            </div>
-            <div class="feature-card">
-              <div class="feature-illustration">
-                <img
-                  src="./images/icon-detailed-records.svg"
-                  alt="Feature Illustration Icon"
-                />
-              </div>
-              <div class="feature-details">
-                <h3>Detailed Records</h3>
-                <p>
-                  Gain insights into who is clicking your links. Knowing when
-                  and where people engage with your content helps inform
-                  better decisions.
-                </p>
-              </div>
-            </div>
-            <div class="feature-card">
-              <div class="feature-illustration">
-                <img
-                  src="./images/icon-fully-customizable.svg"
-                  alt="Feature Illustration Icon"
-                />
-              </div>
-              <div class="feature-details">
-                <h3>Fully Customizable</h3>
-                <p>
-                  Improve brand awareness and content discoverability through
-                  customizable links, supercharging audience engagement.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Pricing Section-->
-    <section class="pricing-section" id="pricing">
-      <div class="container">
-        <div class="section-header">
-          <h2>Boost your links today</h2>
-          <a href="#" class="btn btn-lg">Get Started</a>
-        </div>
-      </div>
-    </section>
-    <!-- Footer -->
-    <footer class="footer-section" id="resources">
-      <div class="container">
-          <!-- Website Logo -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Shorty | Frontend Mentor Shortly URL Shortening API Challenge. By Mohamed
+      Aridah
+    </title>
+    <!-- Fav Icon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <!-- Main Css File -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Font Awesome Icon Library Version 6-->
+    <link
+      rel="stylesheet"
+      href="https://site-assets.fontawesome.com/releases/v6.0.0/css/all.css"
+    />
+  </head>
+  <body>
+    <main class="main">
+      <!-- Header -->
+      <header class="header">
+        <div class="container flex-between">
           <div class="logo">
             <a href="#">
-              <img src="images/logo.svg" alt="Website logo" />
+              <img src="images/logo.svg"alt="Website Logo 'Shortly'" />
             </a>
           </div>
-          <!-- Quick Links Section-->
-          <div class="quick-links">
-            <div class="links-column">
-              <span>Features</span>
-              <div>
-                <a href="#">Link Shortening</a>
-                <a href="#">Branded Links</a>
-                <a href="#">Analytics</a>
-              </div>
+          <nav class="main-navgation flex-between flex-ver-top">
+            <div class="nav-links">
+              <a href="#features">Features</a>
+              <a href="#pricing">Pricing</a>
+              <a href="#resources">Resources</a>
             </div>
-            <div class="links-column">
-              <span>Resources</span>
-              <div>
-                <a href="#">Blog</a>
-                <a href="#">Developers</a>
-                <a href="#">Support</a>
-              </div>
+            <div class="nav-buttons">
+              <a href="#" class="log-in">Login</a>
+              <a href="#" class="sign-up btn btn-sm">Sign Up</a>
             </div>
-            <div class="links-column">
-              <span>Company</span>
-              <div>
-                <a href="#">About</a>
-                <a href="#">Our Team</a>
-                <a href="#">Careers</a>
-                <a href="#">Contact</a>
-              </div>
-            </div>
-          </div>
-          <!-- Social Media Links-->
-          <div class="social-media-links">
-            <a href="#">
-            <img src="./images/icon-facebook.svg" alt="Facebook Logo">
-            </a>
-            <a href="#">
-              <img src="./images/icon-twitter.svg" alt="Twitter Logo">
-            </a>
-            <a href="#">
-              <img src="./images/icon-pinterest.svg" alt="Pinterest Logo">
-            </a>
-            <a href="#">
-              <img src="./images/icon-instagram.svg" alt="Instagram Logo">
-            </a>
+          </nav>
+          <div class="burger-menu">
+            <i class="fa-regular fa-bars icon"></i>
           </div>
         </div>
-      </div>
-    </footer>
-  </main>
-  <script src="js/app.js"></script>
-</body>
-
+      </header>
+      <!-- Landing -->
+      <section class="landing">
+        <div class="landing-text">
+          <h1>More than just shorter links</h1>
+          <p>
+            Build your brand’s recognition and get detailed insights on how your
+            links are performing.
+          </p>
+          <a href="#url-shorten-form" class="btn btn-lg">Get Started</a>
+        </div>
+        <div class="landing-image">
+          <img
+            src="images/illustration-working.svg"
+            alt="Working Illustration"
+          />
+        </div>
+      </section>
+      <!-- Features -->
+      <section class="features" id="features">
+        <div class="container">
+          <!-- Short URL Feature -->
+          <div class="url-shorten-feature">
+            <form class="url-shorten-form" id="url-shorten-form">
+              <div>
+                <input
+                  type="text"
+                  class="url-input"
+                  placeholder="Shorten a link here..."
+                  autocomplete="off"
+                />
+                <span class="alert"></span>
+              </div>
+              <button type="submit" class="btn btn-lg btn-plus-icon">Shorten It!</button>
+            </form>
+            <div class="url-shorten-results"></div>
+          </div>
+          <!-- Advanced Features -->
+          <div class="more-features">
+            <div class="section-header">
+              <h2>Advanced Statistics</h2>
+              <p>
+                Track how your links are performing across the web with our
+                advanced statistics dashboard.
+              </p>
+            </div>
+            <div class="more-features-content">
+              <div class="feature">
+                <div class="feature-illustration">
+                  <img
+                    src="./images/icon-brand-recognition.svg"
+                    alt="Feature Illustration Icon"
+                  />
+                </div>
+                <div class="feature-details">
+                  <h3>Brand Recognition</h3>
+                  <p>
+                    Boost your brand recognition with each click. Generic links
+                    don’t mean a thing. Branded links help instil confidence in
+                    your content.
+                  </p>
+                </div>
+              </div>
+              <div class="feature">
+                <div class="feature-illustration">
+                  <img
+                    src="./images/icon-detailed-records.svg"
+                    alt="Feature Illustration Icon"
+                  />
+                </div>
+                <div class="feature-details">
+                  <h3>Detailed Records</h3>
+                  <p>
+                    Gain insights into who is clicking your links. Knowing when
+                    and where people engage with your content helps inform
+                    better decisions.
+                  </p>
+                </div>
+              </div>
+              <div class="feature">
+                <div class="feature-illustration">
+                  <img
+                    src="./images/icon-fully-customizable.svg"
+                    alt="Feature Illustration Icon"
+                  />
+                </div>
+                <div class="feature-details">
+                  <h3>Fully Customizable</h3>
+                  <p>
+                    Improve brand awareness and content discoverability through
+                    customizable links, supercharging audience engagement.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Pricing -->
+      <section class="pricing" id="pricing">
+        <div class="container">
+          <div class="section-header">
+            <h2>Boost your links today</h2>
+            <a href="#" class="btn btn-lg">Get Started</a>
+          </div>
+        </div>
+      </section>
+      <!-- Footer -->
+      <footer class="footer" id="resources">
+        <div class="container">
+            <!-- Website Logo -->
+            <div class="logo">
+              <a href="#">
+                <img src="images/logo.svg" alt="Website Logo 'Shortly'" />
+              </a>
+            </div>
+            <!-- Quick Links -->
+            <div class="quick-links">
+              <div class="links-group">
+                <span>Features</span>
+                <div>
+                  <a href="#">Link Shortening</a>
+                  <a href="#">Branded Links</a>
+                  <a href="#">Analytics</a>
+                </div>
+              </div>
+              <div class="links-group">
+                <span>Resources</span>
+                <div>
+                  <a href="#">Blog</a>
+                  <a href="#">Developers</a>
+                  <a href="#">Support</a>
+                </div>
+              </div>
+              <div class="links-group">
+                <span>Company</span>
+                <div>
+                  <a href="#">About</a>
+                  <a href="#">Our Team</a>
+                  <a href="#">Careers</a>
+                  <a href="#">Contact</a>
+                </div>
+              </div>
+            </div>
+            <!-- Social Media -->
+            <div class="social-media">
+              <a href="#">
+              <img src="./images/icon-facebook.svg" alt="Facebook Logo">
+              </a>
+              <a href="#">
+                <img src="./images/icon-twitter.svg" alt="Twitter Logo">
+              </a>
+              <a href="#">
+                <img src="./images/icon-pinterest.svg" alt="Pinterest Logo">
+              </a>
+              <a href="#">
+                <img src="./images/icon-instagram.svg" alt="Instagram Logo">
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+    <!-- Main Js File -->
+    <script src="js/app.js"></script>
+  </body>
 </html>

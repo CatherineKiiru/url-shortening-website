@@ -1,0 +1,411 @@
+// Import Variables
+@import "sass/helpers/variables";
+// Import Reset Rules
+@import "sass/base/reset";
+// Import Mixins
+@import "sass/helpers/mixins";
+// Import Buttons Rules
+@import "sass/components/buttons";
+// Import Global Classes
+@import "sass/helpers/helpers";
+.container {
+  position: relative;
+  width: $container-width;
+  margin: 0 auto;
+
+  @include media-992 {
+    $container-width: 90%;
+    width: $container-width;
+  }
+}
+// Import Header Rules
+@import "sass/layout/header";
+.landing {
+  @include flex(null, null, center);
+  padding: $main-padding - 10 0;
+  margin-left: (100 - $container-width) / 2;
+  overflow-x: hidden;
+
+  @include media-992 {
+    flex-direction: column-reverse;
+    margin-left: 0;
+    padding-bottom: ($main-padding - 10) * 2;
+    row-gap: $gap + 20;
+  }
+
+  @include media-280 {
+    padding-bottom: $main-padding - 10;
+  }
+
+  .landing-text {
+    flex: 1;
+    min-width: 465px;
+
+    @include media-992 {
+      max-width: 95%;
+      min-width: 0;
+      text-align: center;
+    }
+
+    h1 {
+      width: 100%;
+      font-size: 3.9em;
+      line-height: 1.15;
+
+      @include media-992 {
+        font-size: 3em;
+      }
+
+      @include media-375 {
+        font-size: 2.6em;
+      }
+
+      @include media-280 {
+        font-size: 2em;
+      }
+    }
+
+    p {
+      font-size: 18px;
+      max-width: 500px;
+      margin: 0 0 $main-margin / 1.7;
+
+      @include media-992 {
+        font-size: 17px;
+        margin: 10px auto $main-margin / 1.7;
+      }
+
+      @include media-375 {
+        font-size: 16px;
+        margin: 10px auto $main-margin / 2;
+      }
+
+      @include media-280 {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .landing-image {
+    position: relative;
+    right: -70px;
+
+    @include media-992 {
+      flex-basis: initial;
+      right: -240px;
+    }
+
+    @include media-767 {
+      right: -170px;
+    }
+
+    @include media-500 {
+      right: -110px;
+    }
+
+    @include media-375 {
+      right: -120px;
+    }
+
+    @include media-280 {
+      right: -70px;
+    }
+
+    @media (min-width: 1100px) {
+      right: -130px;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+}
+
+.features {
+  margin-top: $main-margin * 2;
+  background-color: $background;
+}
+
+// Import Form Rules
+@import "sass/layout/form";
+
+.url-shorten-results {
+  position: relative;
+  top: -60px;
+
+  .url-shorten-result {
+    @include flex(null, space-between, center, $gap - 25); // 15px
+    flex-wrap: wrap;
+    padding: 15px 25px;
+    background: $white;
+    border-radius: $border-radius - 4px; // 6px
+    margin-bottom: $main-margin / 3.3; // 15px
+
+    > div {
+      p {
+        font-size: $font-size + 1; // 17px
+        word-break: break-word;
+      }
+
+      a {
+        &:hover {
+          text-decoration: underline wavy $success 2px;
+        }
+      }
+    }
+    @media (max-width: 850px) {
+      > div {
+        width: 100%;
+        align-items: flex-start;
+        padding: 12px 18px;
+      }
+
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 0;
+      gap: 0;
+    }
+  }
+
+  .delete-all-urls {
+    display: block;
+    margin: auto;
+    font-size: 15px;
+    background-color: $dark-red;
+
+    &:hover {
+      background-color: $red;
+    }
+  }
+}
+
+.url-shorten-result {
+  .old-url {
+    p {
+      color: $very-dark-blue;
+      font-weight: $font-w-500;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    @media (max-width: 850px) {
+      border-bottom: 1px solid $gray;
+    }
+  }
+
+  .new-url {
+    @include flex(null, null, center, $gap - 20); // 20px
+
+    a {
+      color: $cyan;
+    }
+
+    @media (max-width: 850px) {
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+
+  .options {
+    display: flex;
+    gap: $gap / 4; // 10px
+
+    @media (max-width: 850px) {
+      width: 100%;
+    }
+
+    button {
+      width: 95px;
+      font-size: $font-size - 1; // 15px
+      border-radius: $border-radius - 4px; // 6px
+      cursor: pointer;
+
+      &.copied {
+        background: $dark-violet;
+      }
+
+      &.delete-url {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 35px;
+        background: $red;
+        border: none;
+        color: $white;
+        font-size: $font-size + 2; //18px
+        transition: $fast-transition;
+
+        &:hover {
+          color: $red;
+          background-color: $background;
+          font-size: $font-size + 4; //20px
+        }
+      }
+
+      @media (max-width: 850px) {
+        width: 100%;
+        font-size: 18px;
+        padding: 10px 30px;
+      }
+    }
+  }
+}
+
+.more-features-content {
+  display: grid;
+  align-items: flex-start;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: $gap / 1.6; // 25px
+  padding: $main-padding + 30 0 $main-padding + 40 0;
+
+  @media (max-width: 666px) {
+    gap: $gap * 2; // 80px
+  }
+
+  @include media-280 {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .feature {
+    position: relative;
+    background: $white;
+    border-radius: $border-radius - 4px; // 6px
+
+    &:before,
+    &::after {
+      position: absolute;
+      content: "";
+      background: $cyan;
+    }
+  }
+
+  @media (max-width: 666px) {
+    > div:nth-child(2) {
+      &:before,
+      &::after {
+        width: 6px;
+        height: $gap * 2;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      &:before {
+        top: -$gap * 2;
+      }
+
+      &:after {
+        bottom: -$gap * 2;
+      }
+    }
+  }
+
+  @media (min-width: 1130px) {
+    > div:nth-child(2) {
+      margin-top: $gap - 10; // 30px
+
+      &:before,
+      &::after {
+        height: 6px;
+        width: $gap / 1.6;
+        top: 40%;
+      }
+
+      &:before {
+        left: -$gap / 1.6;
+      }
+
+      &:after {
+        right: -$gap / 1.6;
+      }
+    }
+
+    > div:nth-child(3) {
+      margin-top: ($gap - 10) * 2; // 60px
+    }
+  }
+}
+
+.feature {
+  .feature-illustration {
+    $size: 65px;
+    position: absolute;
+    top: -$size / 2;
+    left: 25px;
+    display: grid;
+    place-items: center;
+    width: $size;
+    height: $size;
+    background: $dark-violet;
+    border-radius: 50%;
+
+    @media (max-width: 666px) {
+      $size: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: $size;
+      height: $size;
+    }
+
+    img {
+      max-width: 50%;
+    }
+  }
+
+  .feature-details {
+    padding: 0 25px 30px;
+    margin-top: $main-margin + 10; // 60px
+
+    @media (max-width: 666px) {
+      text-align: center;
+      margin-top: $main-margin + 30; // 80px
+    }
+
+    @include media-280 {
+      padding: 0 20px 25px;
+    }
+
+    h3 {
+      @media (max-width: 666px) {
+        font-size: $font-size + 6; // 22px
+      }
+
+      @include media-280 {
+        font-size: $font-size + 4; // 20px
+      }
+    }
+
+    p {
+      margin-top: 10px;
+      font-size: $font-size - 2; // 14px
+
+      @media (max-width: 666px) {
+        font-size: $font-size; // 16px
+      }
+    }
+  }
+}
+
+.pricing {
+  padding: $main-padding 0; // 50px 0
+  background: $dark-violet url(../images/bg-boost-desktop.svg) no-repeat right;
+  background-size: cover;
+
+  @include media-500 {
+    padding: ($main-padding - 5) * 2 0; // 90px 0
+    background-image: url(../images/bg-boost-mobile.svg);
+  }
+
+  .container {
+    @include flex(column, center, center);
+    height: 100%;
+  }
+
+  h2 {
+    color: $white;
+    margin-bottom: $main-margin / 2.5;
+  }
+}
+// Import Footer Rules
+@import "sass/layout/footer";
