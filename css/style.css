@@ -7,11 +7,10 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 16px;
 }
 
 body {
-  font-family: "Poppins", sans-serif, "Segoe UI", Tahoma, Geneva, Verdana;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
   outline: none;
 }
@@ -20,12 +19,12 @@ h1,
 h2,
 h3,
 h4 {
-  color: #35323e;
+  color: hsl(255, 11%, 22%);
   font-weight: 700;
 }
 
 p {
-  color: #9e9aa7;
+  color: hsl(0, 0%, 75%);
   font-weight: 500;
   line-height: 1.7;
 }
@@ -36,6 +35,105 @@ a {
 
 img {
   max-width: 100%;
+}
+
+.header-section {
+  padding: 30px 0;
+}
+
+.header-section .logo img {
+  height: 40px;
+}
+
+.header-section .main-navigation {
+  flex: 1;
+  gap: 0;
+  margin-top: 10px;
+}
+
+@media (max-width: 1024px) {
+  .header-section .main-navigation {
+    position: absolute;
+    top: 150%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    height: 0;
+    z-index: 999;
+    overflow: hidden;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 33.33333px;
+    border-radius: 10px;
+    background-color: #3b3054;
+    transition: height 0.3s;
+  }
+}
+
+@media (max-width: 767px) {
+  .header-section .main-navigation {
+    width: 90%;
+  }
+}
+
+@media (max-width: 375px) {
+  .header-section .main-navigation {
+    width: 100%;
+  }
+}
+
+@media (max-width: 280px) {
+  .header-section .main-navigation {
+    padding: 0 25px;
+  }
+}
+
+.header-section .main-navigation > div {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+@media (max-width: 992px) {
+  .header-section .main-navigation > div {
+    flex-direction: column;
+    width: 100%;
+    padding: 33.33333px 0;
+  }
+}
+
+@media (max-width: 280px) {
+  .header-section .main-navigation > div {
+    padding: 25px 0;
+  }
+}
+
+.header-section .main-navigation div:first-child {
+  border-bottom: 1px solid white;
+}
+
+.header-section .nav-buttons .btn {
+  color: #fff;
+  width: 80%;
+}
+
+@media (max-width: 375px) {
+  .header-section .nav-buttons .btn {
+    width: 100%;
+  }
+}
+
+.header-section .burger-menu {
+  font-size: 22px;
+  color: #9e9aa7;
+  cursor: pointer;
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .header-section .burger-menu {
+    display: block;
+  }
 }
 
 .btn {
@@ -139,123 +237,26 @@ img {
   }
 }
 
-.header {
-  padding: 45px 0;
-}
 
-.header .logo img {
-  height: 30px;
-}
-
-.header .main-navgation {
-  flex: 1;
-  gap: 0;
-}
-
-@media (max-width: 992px) {
-  .header .main-navgation {
-    position: absolute;
-    top: 150%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 70%;
-    height: 0;
-    z-index: 999;
-    overflow: hidden;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 33.33333px;
-    border-radius: 10px;
-    background-color: #3b3054;
-    transition: height 0.3s;
-  }
-}
-
-@media (max-width: 767px) {
-  .header .main-navgation {
-    width: 90%;
-  }
-}
-
-@media (max-width: 375px) {
-  .header .main-navgation {
-    width: 100%;
-  }
-}
-
-@media (max-width: 280px) {
-  .header .main-navgation {
-    padding: 0 25px;
-  }
-}
-
-.header .main-navgation > div {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-}
-
-@media (max-width: 992px) {
-  .header .main-navgation > div {
-    flex-direction: column;
-    width: 100%;
-    padding: 33.33333px 0;
-  }
-}
-
-@media (max-width: 280px) {
-  .header .main-navgation > div {
-    padding: 25px 0;
-  }
-}
-
-.header .main-navgation div:first-child {
-  border-bottom: 1px solid white;
-}
-
-.header .nav-buttons .btn {
-  color: #fff;
-  width: 80%;
-}
-
-@media (max-width: 375px) {
-  .header .nav-buttons .btn {
-    width: 100%;
-  }
-}
-
-.header .burger-menu {
-  font-size: 22px;
-  color: #9e9aa7;
-  cursor: pointer;
-  display: none;
-}
-
-@media (max-width: 992px) {
-  .header .burger-menu {
-    display: block;
-  }
-}
-
-.main-navgation a {
+.main-navigation a {
   font-weight: 700;
   font-size: 14px;
   color: #9e9aa7;
   transition: 0.3s;
 }
 
-.main-navgation a:hover {
+.main-navigation a:hover {
   color: #232127;
 }
 
 @media (max-width: 992px) {
-  .main-navgation a {
+  .main-navigation a {
     width: 100%;
     color: white;
     text-align: center;
     font-size: 16px;
   }
-  .main-navgation a:hover {
+  .main-navigation a:hover {
     color: #2acfcf;
   }
 }
