@@ -15,5 +15,8 @@
 .DS_Store
 
 # Remove files you don' want to include in the final project
-.sass.md
+.md
+
+# does not ignore the README.md file
+!README.md
 
