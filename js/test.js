@@ -46,27 +46,24 @@ if (localStorage.getItem("saved")) {
 } else (savedURLs = []);
 
 // Copy URL functionality
-copyURL = () => {
-  let copyButtons = document.querySelector(".copy-new-url");
-  copyButtons.forEach(button);
-  function button(){
+function copyURL() {
+  const copyButtons = Array.from(document.querySelectorAll(".copy-new-url"));
+  copyButtons.forEach(button => {
     button.addEventListener("click", () => {
-      let urlText = button.closest(".url-shorten-result").querySelector(".new-url p").textContent;
+      // Get URL Content
+      const urlText = button.closest(".url-shorten-result").querySelector(".new-url p")?.textContent;
       const body = document.querySelector("body");
-      const area = document.createElement("textarea");
-      body.append(area);
-      area.value = urlText;
-      area.select();
-      document.execCommand("copy");
-      //navigator.clipboard.writeText("copy");
+      const textArea = document.createElement("textarea");
+      body.append(textArea);
+      textArea.value = urlText;
+      textArea.select();
+      navigator.clipboard.writeText(textArea.value);
       button.classList.add("copied");
       button.innerHTML = "copied!";
       setTimeout(() => {
         button.classList.remove("copied");
         button.innerHTML = "copy";
-      }, 1500);
-      body.removeChild(area);
-    })
-  }
-
+      }, 2000);
+    });
+  });
 }
