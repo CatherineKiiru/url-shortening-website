@@ -5,31 +5,68 @@ let alertMessage = UrlForm.querySelector(".alert");
 let urlHtmlResult = document.querySelector(".url-shorten-results");
 
 // Build HTML structure
-function htmlStructure(is, originalURL, shortUrl) {
-  urlHtmlResult.insertAdjacentHTML(
-  "beforeend",
-  `<div class="url-shorten-result" id='${id}'>
+htmlStructure = (id, originalUrl, shortUrl) => {
+  urlResult.insertAdjacentHTML(
+    "beforeend",
+    `
+  <div class="url-shorten-result" id='${id}'>
     <div class="old-url">
-    <p><a href="${originalURL}" target="_blank">${originalURL}</a></p>
-  </div>
-  <div class="new-url">
-    <p><a href="${shortUrl}" target="_blank">${shortUrl}</a></p>
-    <div class="options">
-      <button type="button" class="copy-new-url btn btn-sm scale-effect">
-        copy
-      </button>
-
-      <button type="button" class="delete-url scale-effect">
-        <i class="fa-regular fa-trash-can icon"></i>
-      </button>
+    <p><a href="${originalUrl}" target="_blank">${originalUrl}</a></p>
     </div>
-  </div>
-</div>`
+    <div class="new-url">
+      <p><a href="${shortUrl}" target="_blank">${shortUrl}</a></p>
+      <div class="options">
+        <button type="button" class="copy-new-url btn btn-sm scale-effect">
+          copy
+        </button>
+
+        <button type="button" class="delete-url scale-effect">
+          <i class="fa-regular fa-trash-can icon"></i>
+        </button>
+      </div>
+    </div>
+  </div>`
   );
+  removeURL();
+  copyURL();
+  removeAllGeneratedURLs();
 }
 
-//localstorage function
-localStorage.getItem("saved")
-  ? ((savedURLs = JSON.parse(localStorage.getItem("saved"))),
-    RebuildSavedURLS())
-  : (savedURLs = []);
+// LocalStorage and Mapping values into the HTML structure above
+let savedURLs = [];
+RebuildSavedURLS = () => {
+  return savedURLs.map((url) => {
+      return htmlStructure(url.id, url.originalUrl, url.shortUrl)
+    })
+    .join("");
+}
+if (localStorage.getItem("saved")) {
+  savedURLs = JSON.parse(localStorage.getItem("saved"));
+  RebuildSavedURLS();
+} else (savedURLs = []);
+
+// Copy URL functionality
+copyURL = () => {
+  let copyButtons = document.querySelector(".copy-new-url");
+  copyButtons.forEach(button);
+  function button(){
+    button.addEventListener("click", () => {
+      let urlText = button.closest(".url-shorten-result").querySelector(".new-url p").textContent;
+      const body = document.querySelector("body");
+      const area = document.createElement("textarea");
+      body.append(area);
+      area.value = urlText;
+      area.select();
+      document.execCommand("copy");
+      //navigator.clipboard.writeText("copy");
+      button.classList.add("copied");
+      button.innerHTML = "copied!";
+      setTimeout(() => {
+        button.classList.remove("copied");
+        button.innerHTML = "copy";
+      }, 1500);
+      body.removeChild(area);
+    })
+  }
+
+}
