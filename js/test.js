@@ -2,7 +2,7 @@ let UrlForm = document.querySelector("url-shorten-form");
 let urlInput = UrlForm.querySelector(".url-input");
 let submitButton = UrlForm.querySelector("button");
 let alertMessage = UrlForm.querySelector(".alert");
-let urlHtmlResult = document.querySelector(".url-shorten-results");
+let urlResult = document.querySelector(".url-shorten-results");
 
 // Build HTML structure
 htmlStructure = (id, originalUrl, shortUrl) => {
@@ -27,7 +27,7 @@ htmlStructure = (id, originalUrl, shortUrl) => {
     </div>
   </div>`
   );
-  removeURL();
+  deleteURL();
   copyURL();
   removeAllGeneratedURLs();
 }
@@ -47,15 +47,15 @@ if (localStorage.getItem("saved")) {
 
 // Copy URL functionality
 function copyURL() {
-  const copyButtons = Array.from(document.querySelectorAll(".copy-new-url"));
-  copyButtons.forEach(button => {
+  let copyButtons = urlResult.querySelectorAll(".copy-new-url");
+  copyButtons.forEach((button) => {
     button.addEventListener("click", () => {
       // Get URL Content
-      const urlText = button.closest(".url-shorten-result").querySelector(".new-url p")?.textContent;
-      const body = document.querySelector("body");
-      const textArea = document.createElement("textarea");
+      let urlText = button.closest(".url-shorten-result").querySelector(".new-url p").textContent;
+      let body = document.querySelector("body");
+      let textArea = document.createElement("textarea");
       body.append(textArea);
-      textArea.value = urlText;
+      textArea.value = urlText; //textArea is an object that takes in the value prop
       textArea.select();
       navigator.clipboard.writeText(textArea.value);
       button.classList.add("copied");
@@ -64,6 +64,18 @@ function copyURL() {
         button.classList.remove("copied");
         button.innerHTML = "copy";
       }, 2000);
+      // body.removeChild(textArea);
+    });
+  });
+}
+
+// Delete one URL functionality
+function removeURL() {
+  let deleteURLButton = urlResult.querySelectorAll(".delete-url");
+  deleteURLButton.forEach((button) => {
+    button.addEventListener("click", () => {
+      button.closest(".url-shorten-result").remove();
+      localStorage.removeItem("saved");
     });
   });
 }
