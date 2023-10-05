@@ -5,16 +5,16 @@ let alertMessage = UrlForm.querySelector(".alert");
 let urlResult = document.querySelector(".url-shorten-results");
 
 // Build HTML structure
-htmlStructure = (id, originalUrl, shortUrl) => {
+htmlStructure = (id, originalLink, shortLink) => {
   urlResult.insertAdjacentHTML(
     "beforeend",
     `
   <div class="url-shorten-result" id='${id}'>
     <div class="old-url">
-    <p><a href="${originalUrl}" target="_blank">${originalUrl}</a></p>
+    <p><a href="${originalLink}" target="_blank">${originalLink}</a></p>
     </div>
     <div class="new-url">
-      <p><a href="${shortUrl}" target="_blank">${shortUrl}</a></p>
+      <p><a href="${shortLink}" target="_blank">${shortLink}</a></p>
       <div class="options">
         <button type="button" class="copy-new-url btn btn-sm scale-effect">
           copy
@@ -27,31 +27,34 @@ htmlStructure = (id, originalUrl, shortUrl) => {
     </div>
   </div>`
   );
-  deleteURL();
-  copyURL();
-  removeAllGeneratedURLs();
-}
+  deleteLink();
+  copyLink();
+  deleteAllLinks();
+};
 
 // LocalStorage and Mapping values into the HTML structure above
-let savedURLs = [];
-RebuildSavedURLS = () => {
-  return savedURLs.map((url) => {
-      return htmlStructure(url.id, url.originalUrl, url.shortUrl)
+let savedLinks = [];
+RebuildSavedLinks = () => {
+  return savedLinks
+    .map((url) => {
+      return htmlStructure(url.id, url.originalUrl, url.shortUrl);
     })
     .join("");
-}
+};
 if (localStorage.getItem("saved")) {
-  savedURLs = JSON.parse(localStorage.getItem("saved"));
-  RebuildSavedURLS();
-} else (savedURLs = []);
+  savedLinks = JSON.parse(localStorage.getItem("saved"));
+  RebuildSavedLinks();
+} else savedLinks = [];
 
 // Copy URL functionality
-function copyURL() {
+function copyLink() {
   let copyButtons = urlResult.querySelectorAll(".copy-new-url");
   copyButtons.forEach((button) => {
     button.addEventListener("click", () => {
       // Get URL Content
-      let urlText = button.closest(".url-shorten-result").querySelector(".new-url p").textContent;
+      let urlText = button
+        .closest(".url-shorten-result")
+        .querySelector(".new-url p").textContent;
       let body = document.querySelector("body");
       let textArea = document.createElement("textarea");
       body.append(textArea);
@@ -69,8 +72,8 @@ function copyURL() {
   });
 }
 
-// Delete one URL functionality
-function removeURL() {
+// Delete one link
+function deleteLink() {
   let deleteURLButton = urlResult.querySelectorAll(".delete-url");
   deleteURLButton.forEach((button) => {
     button.addEventListener("click", () => {
@@ -79,3 +82,38 @@ function removeURL() {
     });
   });
 }
+
+// Delete all links
+function deleteAllLinks() {
+  if (urlResult.querySelectorAll(".url-shorten-result").length >= 2) {
+    if (urlResult.querySelectorALL(".delete-all-urls")) {
+      urlResult.querySelector(".delete-all-urls").remove();
+    }
+    let deleteButton = document.createElement("button");
+    deleteButton.classList = ("btn btn-sm delete-all-urls scale-effect");
+    deleteButton.innerText = "delete all links";
+
+    function insertAfter(newButton, existingPosition) {
+      existingPosition.parentNode.insertBefore(newButton, existingPosition.nextSibling);
+    }
+    insertAfter(deleteButton, urlResult.lastElementChild);
+
+    //Remove deleted links from local storage
+    let deleteAll = urlResult.querySelector("delete-all-urls");
+    deleteAll.addEventListener("click", () => {
+      localStorage.removeItem("saved");
+      deleteAll.innerHTML = "";
+    });
+  } else {
+    if (urlResult.querySelector("delete-all-urls")) {
+      urlResult.querySelector("delete-all-urls").remove();
+    }
+  }
+};
+
+//Fetch shortcode API
+async function urlApi (url) {
+  let baseApi = "https://api.shrtco.de/v2/";
+  
+}
+
