@@ -66,7 +66,7 @@ img {
     align-items: center;
     padding: 0 30px;
     border-radius: 20px;
-    background-color: rgb(184, 96, 177);
+    background-color: #2d1e49;
     transition: all 0.5s ease;
   }
 }
