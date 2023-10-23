@@ -116,6 +116,7 @@ img {
 .header-section .nav-buttons .btn {
   color: #fff;
   width: 80%;
+  
 }
 
 @media (max-width: 375px) {
@@ -144,10 +145,16 @@ img {
   font-size: 14px;
   color: #9e9aa7;
   transition: 0.3s;
+
 }
 
 .main-navigation a:hover {
   color: #232127;
+  text-decoration-line: underline;
+  text-decoration-style: wavy;
+  text-decoration-color: #2acfcf;
+  
+  
 }
 
 
@@ -171,6 +178,7 @@ img {
   border-radius: 100px;
   transition: 0.3s;
   padding: 7px 32px;
+  
 }
 
 /* Sign up, get started and delete buttons */
@@ -244,6 +252,7 @@ img {
 .landing .landing-text {
   flex: 1;
   min-width: 400px;
+  
  
 }
 
@@ -252,6 +261,7 @@ img {
     max-width: 90%;
     min-width: 0;
     text-align: center;
+    
   }
 }
 
@@ -270,14 +280,14 @@ img {
 .landing .landing-text p {
   font-size: 18px;
   max-width: 500px;
-  padding: 30px 0 0;
+  padding: 30px 0;
   
 }
 
 @media (max-width: 1024px) {
   .landing .landing-text p {
     font-size: 16px;
-    margin: 10px auto 29.41176px;
+    
   }
 }
 
