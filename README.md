@@ -7,18 +7,15 @@ This is my solution to the [Shortly URL shortening API Challenge challenge on Fr
 - [Overview](#overview)
   - [The challenge](#the-challenge)
   - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
+
 
 
 ## Overview
-This is a url shortening website. Users can post a link, and get a shorter version.
+This is a url shortening website. Users can post a link, and get a shorter version of the original link
 
 ### The challenge
 
@@ -26,7 +23,6 @@ Users should be able to:
 
 - View the optimal layout for the site depending on their device's screen size
 - Shorten any valid URL
-- See a list of their shortened links, even after refreshing the browser
 
 
 ### Screenshot
@@ -35,7 +31,19 @@ Users should be able to:
 
 ### Built with
 
+- JavaScript
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
 - CSS Grid
+-Media queries
+
+### What I learnt
+I learnt JavaScript API methods, how to retrieve and post data. I also learnt CRUD operations at a detailed level.
+
+### Useful resources
+- https://codepen.io/FedLover/pen/NWXPeae
+- https://www.topcoder.com/thrive/articles/fetch-api-javascript-how-to-make-get-and-post-requests
+
+### Author
+Catherine Kiiru
