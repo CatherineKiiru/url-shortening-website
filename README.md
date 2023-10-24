@@ -13,7 +13,6 @@ This is my solution to the [Shortly URL shortening API Challenge challenge on Fr
 - [Author](#author)
 
 
-
 ## Overview
 This is a url shortening website. Users can post a link, and get a shorter version of the original link
 
@@ -29,7 +28,7 @@ Users should be able to:
 
 ### Screenshot
 
-![](./Screenshot.png)
+![](./images/Screenshot.png)
 
 ### Built with
 
@@ -41,7 +40,9 @@ Users should be able to:
 -Media queries
 
 ### What I learnt
-I learnt JavaScript API methods, how to retrieve and post data. I also learnt CRUD operations at a detailed level.
+I learnt JavaScript methods, properties, and how to retrieve and post data. I also learnt CRUD operations at a detailed level.
+This project was an excellent learning experience on Vanilla JavaScript. 
+
 
 ### Useful resources
 - https://codepen.io/FedLover/pen/NWXPeae
