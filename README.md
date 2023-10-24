@@ -17,6 +17,8 @@ This is my solution to the [Shortly URL shortening API Challenge challenge on Fr
 ## Overview
 This is a url shortening website. Users can post a link, and get a shorter version of the original link
 
+Live site - https://urlshorteningwebsite.netlify.app/
+
 ### The challenge
 
 Users should be able to:
