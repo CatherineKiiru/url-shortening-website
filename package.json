@@ -1,0 +1,22 @@
+{
+  "name": "url-shortening-website",
+  "version": "1.0.0",
+  "description": "This is my solution to the [Shortly URL shortening API Challenge challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/url-shortening-api-landing-page-2ce3ob-G). Frontend Mentor challenges help you improve your coding skills by building realistic projects.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CatherineKiiru/url-shortening-website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CatherineKiiru/url-shortening-website/issues"
+  },
+  "homepage": "https://github.com/CatherineKiiru/url-shortening-website#readme",
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
+}
