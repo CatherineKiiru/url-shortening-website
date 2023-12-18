@@ -15,8 +15,5 @@
   "bugs": {
     "url": "https://github.com/CatherineKiiru/url-shortening-website/issues"
   },
-  "homepage": "https://github.com/CatherineKiiru/url-shortening-website#readme",
-  "devDependencies": {
-    "typescript": "^5.2.2"
-  }
+  "homepage": "https://github.com/CatherineKiiru/url-shortening-website#readme"
 }
